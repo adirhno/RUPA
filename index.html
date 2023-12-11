@@ -1,0 +1,86 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>API Project</title>
+    <script src="https://twitter.github.io/typeahead.js/js/handlebars.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Indie+Flower"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="user-container">
+        <div id="user"></div>
+        <script id="user-template" type="text/x-handlebars-template">
+          <img src="{{picture.large}}" />
+          <div id="name">
+            <h4>{{name.first}} {{name.last}}</h4>
+            <h3>{{location.country}}, {{location.city}}</h3></div>
+        </script>
+      </div>
+      <div class="content-container">
+        <div id="content"></div>
+        <script id="content-template" type="text/x-handlebars-template">
+
+
+          Favorite quote:
+          <div class="quote-container">{{quote}}</div>
+          <div class="pokemon-container"><img
+              src="{{pokemon.img}}"
+              alt="ops!, no img"
+            />
+            Favorite Pokemon:
+            {{pokemon.name}}
+          </div>
+
+          <h3>About me:</h3>
+          <div class="meat-container">{{meat}}</div>
+        </script>
+      </div>
+
+      <div class="friends">
+        Friends
+        <div id="friends"></div>
+        <script id="friends-template" type="text/x-handlebars-template">
+          {{#each friends}}
+            <h2> {{this.name.first}} {{this.name.last}}</h2>
+          {{/each}}
+        </script>
+      </div>
+      <div class="buttons">
+        <button id="load">Load User Data</button>
+        <button id="display">Display User</button>
+        <button id="saveUserPage">Save User Page”</button>
+        <div class="dropupcon">
+          <button class="dropbtn" id="loadUserPage">Load User Page</button>
+          <div class="dropup-content">
+            <a class="user" data-id="1">Link 1</a>
+            <a class="user" data-id="2">Link 2</a>
+            <a class="user" data-id="3">Link 3</a>
+          </div>
+        </div>
+        <button id="clearUsers">Clear Users</button>
+      </div>
+    </div>
+  </body>
+
+  <script src="APIManager.js"></script>
+  <script src="Renderer.js"></script>
+  <script src="main.js"></script>
+</html>
